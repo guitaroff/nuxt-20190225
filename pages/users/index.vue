@@ -27,7 +27,7 @@
         <td>{{ user.phone }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <router-link :to="'/edit/' + user.id">Редактировать</router-link>
+          <router-link :to="`users/edit?id=${user.id}`">Редактировать</router-link>
         </td>
         <td>
           <button type="button" class="btn btn-danger" @click="deleteUser(user.id)">

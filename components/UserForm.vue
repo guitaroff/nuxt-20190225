@@ -6,9 +6,15 @@
         id="firstName"
         v-model.trim="localUser.firstName"
         type="text"
+        name="firstName"
+        v-validate="'required'"
         class="form-control"
+        :class="{ 'is-invalid': errors.has('firstName') }"
         placeholder="Введите имя"
       />
+      <span class="is-invalid" v-show="errors.has('firstName')">
+        Введите имя
+      </span>
     </div>
 
     <div class="form-group">
@@ -201,3 +207,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .is-invalid {
+    color: red;
+  }
+</style>
