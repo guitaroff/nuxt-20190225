@@ -21,6 +21,14 @@ export default {
   components: {
     UserForm: () => import('@/components/UserForm.vue')
   },
+  asyncData({ query }) {
+    return axios
+      .get('http://localhost:3004/users/' + query.id)
+      .then(response => response.data)
+      .then(user => {
+        return { user: user }
+      })
+  },
   data() {
     return {
       user: null
