@@ -23,10 +23,9 @@ export default {
   },
   asyncData({ query }) {
     return axios
-      .get('http://localhost:3004/users/' + query.id)
-      .then(response => response.data)
-      .then(user => {
-        return { user: user }
+      .get('/users/' + query.id)
+      .then((response) => {
+        return { user: response.data }
       })
   },
   data() {

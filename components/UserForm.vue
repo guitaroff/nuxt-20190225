@@ -49,7 +49,9 @@
         placeholder="День Рождения"
       />
 
-      <datepicker v-model.trim="localUser.birthday"></datepicker>
+      <no-ssr>
+        <datepicker v-model.trim="localUser.birthday"></datepicker>
+      </no-ssr>
     </div>
 
     <div class="form-group">
@@ -168,7 +170,9 @@
         placeholder="Дата регистрации"
       />
 
-      <datepicker v-model.trim="localUser.registered"></datepicker>
+      <no-ssr>
+        <datepicker v-model.trim="localUser.registered"></datepicker>
+      </no-ssr>
     </div>
   </div>
 </template>
@@ -197,7 +201,7 @@ export default {
       handler: 'updateUser'
     }
   },
-  mounted() {
+  created() {
     this.localUser = Object.assign({}, this.user)
   },
   methods: {
